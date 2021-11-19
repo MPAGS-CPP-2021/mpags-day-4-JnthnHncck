@@ -3,6 +3,7 @@
 #include "CipherType.hpp"
 #include "ProcessCommandLine.hpp"
 #include "TransformChar.hpp"
+#include "PlayfairCipher.hpp"
 
 #include <cctype>
 #include <fstream>
@@ -94,14 +95,13 @@ int main(int argc, char* argv[])
     switch (settings.cipherType) {
         case CipherType::Caesar: {
             // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
-            CaesarCipher cipher{settings.cipherKey};
-            outputText = cipher.applyCipher(inputText, settings.cipherMode);
+            CaesarCipher cipher1{settings.cipherKey};
+            outputText = cipher1.applyCipher(inputText, settings.cipherMode);
             break;
         }
         case CipherType::Playfair: {
-            std::cerr << "[warning] Playfair cipher not yet implemented"
-                      << std::endl;
-            outputText = inputText;
+            PlayfairCipher cipher2{settings.cipherKey};
+            outputText = cipher2.applyCipher(inputText, settings.cipherMode);
             break;
         }
     }

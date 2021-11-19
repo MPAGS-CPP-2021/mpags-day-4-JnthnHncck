@@ -54,7 +54,7 @@ bool processCommandLine(const std::vector<std::string>& cmdLineArgs,
             // Handle cipher key option
             // Next element is the key unless -k is the last argument
             if (i == nCmdLineArgs - 1) {
-                std::cerr << "[error] -k requires a positive integer argument"
+                std::cerr << "[error] -k requires a positive integer argument for Caesar, a string for Playfair"
                           << std::endl;
                 // Set the flag to indicate the error and terminate the loop
                 processStatus = false;
